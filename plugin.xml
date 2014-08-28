@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+           id="com.telerik.certificateAuth"
+      version="0.0.1">
+    <name>CertificateAuth</name>
+    <description>Client side certificate authority</description>
+
+    <js-module src="www/CertificateAuth.js" name="CertificateAuth">
+        <clobbers target="window.CertificateAuth" />
+    </js-module>
+
+
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="CertificateAuth">
+                <param name="ios-package" value="TLKCertificateAuth" />
+                <param name="onload" value="true" />
+        <!--         <preference name="TLKCertificateAuthFileName" value="Certificate.p12" />
+                <preference name="TLKCertificateAuthFilePassword" value="123" /> -->
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/TLKCertificateAuth.h" />
+        <source-file src="src/ios/TLKCertificateAuth.m" />
+
+        <header-file src="src/ios/CustomHTTPProtocol.h" />
+        <source-file src="src/ios/CustomHTTPProtocol.m" />
+
+        <header-file src="src/ios/CacheStoragePolicy.h" />
+        <source-file src="src/ios/CacheStoragePolicy.m" />
+
+        <header-file src="src/ios/CanonicalRequest.h" />
+        <source-file src="src/ios/CanonicalRequest.m" />
+
+        <header-file src="src/ios/QNSURLSessionDemux.h" />
+        <source-file src="src/ios/QNSURLSessionDemux.m" />
+
+
+        <framework src="Security.framework" />
+    </platform>
+
+   
+
+    
+
+</plugin>
